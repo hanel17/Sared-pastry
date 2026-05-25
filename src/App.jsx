@@ -18,7 +18,7 @@ function CatEditor({cats,onSaveCats,texts,onSaveTexts,S,T}){
   const[t3,setT3]=useState(cats.postres);
   const[ms,setMs]=useState(texts.menuSub);
   const[an,setAn]=useState(texts.anticipacion);
-  const guardarCats=()=>{onSaveCats({tortas:t1,cupcakes:t2,postres:t3});setTimeout(()=>{window.location.reload();},500);};
+  const guardarCats=()=>{const nc={tortas:t1,cupcakes:t2,postres:t3};localStorage.setItem("sp_cats",JSON.stringify(nc));onSaveCats(nc);setTimeout(()=>{window.location.reload();},300);};
   const guardarTexts=()=>{onSaveTexts({menuSub:ms,anticipacion:an});window.alert("Textos guardados! Recarga la pagina.");};
   return(<div>
     <div style={S.panel}>
