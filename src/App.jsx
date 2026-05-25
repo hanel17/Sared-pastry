@@ -13,20 +13,30 @@ const ICATS={tortas:"Tortas & Pasteles",cupcakes:"Cupcakes",postres:"Galletas & 
 const ITEXTS={menuSub:"Todo elaborado con ingredientes frescos 🌸",anticipacion:"Pedidos con mínimo 48 horas de anticipación"};
 function applyTheme(t){const r=document.documentElement.style;r.setProperty("--sp-primary",t.primary);r.setProperty("--sp-accent",t.accent);}
 function CatEditor({cats,onSaveCats,texts,onSaveTexts,S,T}){
-  const[lc,setLc]=useState({...cats});useEffect(()=>setLc({...cats}),[cats.tortas,cats.cupcakes,cats.postres]);
-  const[lt,setLt]=useState({...texts});
-  const saveC=()=>onSaveCats(lc);const resetC=()=>{const def={tortas:"Tortas & Pasteles",cupcakes:"Cupcakes",postres:"Galletas & Postres"};setLc(def);onSaveCats(def);};
-  const saveT=()=>onSaveTexts(lt);
+  const[t1,setT1]=useState(cats.tortas);
+  const[t2,setT2]=useState(cats.cupcakes);
+  const[t3,setT3]=useState(cats.postres);
+  const[ms,setMs]=useState(texts.menuSub);
+  const[an,setAn]=useState(texts.anticipacion);
+  const guardarCats=()=>{onSaveCats({tortas:t1,cupcakes:t2,postres:t3});window.alert("Categorias guardadas! Recarga la pagina.");};
+  const guardarTexts=()=>{onSaveTexts({menuSub:ms,anticipacion:an});window.alert("Textos guardados! Recarga la pagina.");};
   return(<div>
-    <div style={{marginBottom:"12px"}}><label style={S.label}>Subtítulo del Menú</label><input style={S.input} value={lt.menuSub} onChange={e=>setLt(p=>({...p,menuSub:e.target.value}))}/></div>
-    <div style={{marginBottom:"12px"}}><label style={S.label}>Texto de anticipación</label><input style={S.input} value={lt.anticipacion} onChange={e=>setLt(p=>({...p,anticipacion:e.target.value}))}/></div>
-    <button style={{...S.btnSm("#4caf7d"),marginBottom:"16px"}} onClick={saveT}>✓ Guardar textos</button>
-    <div style={{marginBottom:"12px"}}><label style={S.label}>🎂 Categoría Tortas</label><input style={S.input} value={lc.tortas} onChange={e=>setLc(p=>({...p,tortas:e.target.value}))}/></div>
-    <div style={{marginBottom:"12px"}}><label style={S.label}>🧁 Categoría Cupcakes</label><input style={S.input} value={lc.cupcakes} onChange={e=>setLc(p=>({...p,cupcakes:e.target.value}))}/></div>
-    <div style={{marginBottom:"12px"}}><label style={S.label}>🍪 Categoría Postres</label><input style={S.input} value={lc.postres} onChange={e=>setLc(p=>({...p,postres:e.target.value}))}/></div>
-    <button style={{...S.btnSm("#4caf7d"),marginBottom:"4px"}} onClick={saveC}>✓ Guardar categorías</button>
+    <div style={S.panel}>
+      <h4 style={{fontFamily:"Georgia,serif",color:T.primary,marginBottom:"14px"}}>pencil Textos</h4>
+      <div style={{marginBottom:"12px"}}><label style={S.label}>Subtitulo del Menu</label><input style={S.input} value={ms} onChange={e=>setMs(e.target.value)}/></div>
+      <div style={{marginBottom:"14px"}}><label style={S.label}>Texto anticipacion</label><input style={S.input} value={an} onChange={e=>setAn(e.target.value)}/></div>
+      <button style={S.btn("#4caf7d")} onClick={guardarTexts}>Guardar Textos</button>
+    </div>
+    <div style={S.panel}>
+      <h4 style={{fontFamily:"Georgia,serif",color:T.primary,marginBottom:"14px"}}>Categorias</h4>
+      <div style={{marginBottom:"12px"}}><label style={S.label}>Tortas</label><input style={S.input} value={t1} onChange={e=>setT1(e.target.value)}/></div>
+      <div style={{marginBottom:"12px"}}><label style={S.label}>Cupcakes</label><input style={S.input} value={t2} onChange={e=>setT2(e.target.value)}/></div>
+      <div style={{marginBottom:"14px"}}><label style={S.label}>Postres</label><input style={S.input} value={t3} onChange={e=>setT3(e.target.value)}/></div>
+      <button style={S.btn("#4caf7d")} onClick={guardarCats}>Guardar Categorias</button>
+    </div>
   </div>);
 }
+
 
 export default function SaredPastry(){
   const[products,setProducts]=useState(IP);
