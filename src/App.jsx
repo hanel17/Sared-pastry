@@ -13,9 +13,9 @@ const ICATS={tortas:"Tortas & Pasteles",cupcakes:"Cupcakes",postres:"Galletas & 
 const ITEXTS={menuSub:"Todo elaborado con ingredientes frescos 🌸",anticipacion:"Pedidos con mínimo 48 horas de anticipación"};
 function applyTheme(t){const r=document.documentElement.style;r.setProperty("--sp-primary",t.primary);r.setProperty("--sp-accent",t.accent);}
 function CatEditor({cats,onSaveCats,texts,onSaveTexts,S,T}){
-  const[lc,setLc]=useState({...cats});
+  const[lc,setLc]=useState({...cats});useEffect(()=>setLc({...cats}),[cats.tortas,cats.cupcakes,cats.postres]);
   const[lt,setLt]=useState({...texts});
-  const saveC=()=>onSaveCats(lc);
+  const saveC=()=>onSaveCats(lc);const resetC=()=>{const def={tortas:"Tortas & Pasteles",cupcakes:"Cupcakes",postres:"Galletas & Postres"};setLc(def);onSaveCats(def);};
   const saveT=()=>onSaveTexts(lt);
   return(<div>
     <div style={{marginBottom:"12px"}}><label style={S.label}>Subtítulo del Menú</label><input style={S.input} value={lt.menuSub} onChange={e=>setLt(p=>({...p,menuSub:e.target.value}))}/></div>
