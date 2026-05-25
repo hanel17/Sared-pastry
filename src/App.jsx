@@ -6,10 +6,10 @@ const IP=[{id:1,cat:"tortas",name:"Torta de Vainilla",desc:"Suave bizcocho con c
 const IO=[{id:1,type:"2x1",title:"2x1 en Cupcakes",photo:null,desc:"Lleva 2 docenas y paga solo 1",productId:5,active:true,visible:true},{id:2,type:"discount",title:"10% en Tortas",photo:null,desc:"En cualquier torta esta semana",productId:1,value:10,active:true,visible:true}];
 const IE=[{id:1,name:"Bodas",emoji:"💍",photo:null,desc:"Torta principal + mesa de postres + cupcakes",packages:["Básico: torta 3 pisos + 50 cupcakes — RD$8,000","Deluxe: torta 4 pisos + 100 cupcakes + cake pops — RD$15,000"]},{id:2,name:"Baby Shower",emoji:"🍼",desc:"Paquetes adorables para celebrar la llegada del bebé",packages:["Paquete Rosa/Azul: torta + 24 cupcakes + galletas — RD$4,500","Paquete Premium: + macarons y cake pops — RD$7,000"]},{id:3,name:"Cumpleaños",emoji:"🎂",desc:"Desde tortas sencillas hasta mesas completas",packages:["Básico: torta personalizada — Desde RD$1,500","Mesa Dulce: torta + cupcakes + brownies — RD$6,000"]},{id:4,name:"Graduaciones",emoji:"🎓",desc:"Celebra ese logro con algo especial",packages:["Torta temática + 24 cupcakes — RD$3,200","Mesa completa con foto edible — RD$5,500"]},{id:5,name:"Corporativos",emoji:"💼",desc:"Para eventos de empresa y celebraciones",packages:["Cupcakes personalizados con logo (x50) — Cotizar","Mesa de postres completa — Cotizar"]}];
 const IT={primary:"#5e3d7a",accent:"#9b72b0",bg:"#f0e8f5",card:"rgba(253,248,255,0.88)",border:"#d8c5e8",text:"#2d1f3d"};
-const CATS={tortas:"Tortas & Pasteles",cupcakes:"Cupcakes",postres:"Galletas & Postres"};
+const CATS={tortas:"Pasteles",cupcakes:"Cupcakes",postres:"Galletas & Postres"};
 const OT={"2x1":"2 × 1","discount":"Descuento %","bundle":"Combo","free-item":"Regalo"};
 const PWD="sared2025";
-const ICATS={tortas:"Tortas & Pasteles",cupcakes:"Cupcakes",postres:"Galletas & Postres"};
+const ICATS={tortas:"Pasteles",cupcakes:"Cupcakes",postres:"Galletas & Postres"};
 const ITEXTS={menuSub:"Todo elaborado con ingredientes frescos 🌸",anticipacion:"Pedidos con mínimo 48 horas de anticipación"};
 function applyTheme(t){const r=document.documentElement.style;r.setProperty("--sp-primary",t.primary);r.setProperty("--sp-accent",t.accent);}
 function CatEditor({cats,onSaveCats,texts,onSaveTexts,S,T}){
